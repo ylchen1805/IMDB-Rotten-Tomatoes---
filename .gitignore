@@ -11,5 +11,5 @@ wheels/
 
 # Data
 data/
-submission.csv
+*.csv
 transformer.pt
