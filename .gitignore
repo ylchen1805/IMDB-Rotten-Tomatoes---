@@ -5,11 +5,53 @@ build/
 dist/
 wheels/
 *.egg-info
+.pytest_cache/
+.coverage
 
 # Virtual environments
 .venv
+env/
+venv/
 
 # Data
 data/
 *.csv
+!sample_data.csv
+
+# Models
+models/
+*.pt
+*.pth
+*.onnx
 transformer.pt
+checkpoint*/
+best_model*
+
+# Outputs
+submission*.csv
+predictions/
+results/
+outputs/
+
+# Logs
+logs/
+runs/
+*.log
+wandb/
+tensorboard/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Temp files
+*.tmp
+*.bak
+~*
