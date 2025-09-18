@@ -1,0 +1,31 @@
+# Sentiment Analysis Configuration
+
+data:
+  train_path: "data/train.csv"
+  test_path: "data/test.csv"
+  validation_split: 0.05
+  remove_duplicates: false
+  max_length: 512
+  text_column: "review"
+  label_column: "sentiment"
+
+model:
+  model_type: "bert"  # Options: bert, roberta
+  model_name: "bert-base-uncased"
+  num_classes: 2
+  dropout_rate: 0.1
+  freeze_backbone: false
+
+training:
+  batch_size: 16
+  learning_rate: 1.0e-5
+  weight_decay: 0.01
+  num_epochs: 3
+  gradient_clip: 1.0
+  early_stopping_patience: 3
+  save_dir: "./models"
+  seed: 42
+  num_workers: 0
+  pin_memory: true
+
+device: null  # null for auto-detect, or specify "cuda:0", "cpu", etc.
