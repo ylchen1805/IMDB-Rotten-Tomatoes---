@@ -129,9 +129,19 @@ training:
 
 ### 訓練曲線分析
 
-- **BERT**: [請描述您觀察到的訓練過程，例如：在第幾個 epoch 達到最佳表現？是否有過擬合？]
-- **RoBERTa**: [請描述 RoBERTa 的訓練特性，與 BERT 有何不同？]
-- **Early Stopping**: [說明 early stopping 在您的實驗中的效果]
+- **BERT**:\
+  * Learning rate= 1e-5，總epochs= 5
+  * 第3個epoch 時，valdition loss 最低，接下來逐步增加
+- **RoBERTa**:
+  * Learning rate= 1e-7，總epochs= 16
+  * 在23個epochs後，遭遇局部最小值（oscillating point )，同時接近全域最小值，loss 下降速度大幅下降
+  * 在經歷大約10 個 epochs後脫離，loss 收斂加速
+  * 最後在第39 個eposh，收斂出最佳模型。
+- **Early Stopping**:
+  * 並未採用Early Stopping
+  * 紀錄最小的validation loss，每個epochs結束後比較，並儲存模型
+    * 避免在遭遇局部最小值時提早結束訓練
+  * 因為採用預訓練模型，但資料集數量相對較少，所以採用極低的學習率，增強對一些較少出現的資料的學習能力
 
 ### Confusion Matrix (最佳模型)
 
